@@ -1,0 +1,102 @@
+@import 'scss-utils/_variables';
+@import 'scss-utils/_mixins.scss';
+
+.notiesSection {
+  position: relative;
+  padding-top: 45px;
+  @media screen and (min-width: 768px) {
+    padding-top: 95px;
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 60px;
+  }
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 28px;
+
+  @include breakpoint-min($tablet) {
+    margin-bottom: 40px;
+  }
+}
+
+.notification {
+  width: 220px;
+  margin: 50px auto 0;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+
+  color: $secondaryGrayColor;
+
+  @media screen and (min-width: 768px) {
+    width: auto;
+    margin: 90px 0px 0px;
+    font-size: 48px;
+    line-height: 66px;
+  }
+}
+
+.navWarpper {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.buttonText {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  margin: 8px 12px 0px 0px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  color: $textColor;
+}
+
+.buttonWrapper {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.stickyBtnWrapper {
+  position: sticky;
+  z-index: 4;
+  display: flex;
+  justify-content: flex-end;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.stickyLoginBtnWrapper {
+  position: absolute;
+  top: 390px;
+  right: 20px;
+  z-index: 4;
+  display: flex;
+  justify-content: flex-end;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.noticesInput {
+  margin-bottom: 28px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+}

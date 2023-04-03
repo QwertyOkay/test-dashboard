@@ -1,0 +1,62 @@
+@import 'scss-utils/_variables';
+@import 'scss-utils/_mixins';
+
+.authNavWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+
+  @include breakpoint-min($tablet) {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint-min($desktop) {
+    margin-bottom: 0;
+    margin-right: 0px;
+  }
+}
+.authNavLink {
+  width: 111px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+  color: $textColor;
+  background-color: $lightColor;
+  border: 2px solid $orangeColor;
+  border-radius: 40px;
+  margin-right: 12px;
+
+  @include transition();
+
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    color: $lightColor;
+    background-color: $orangeColor;
+    transform: color, background-color;
+  }
+
+  @include breakpoint-min($tablet) {
+    font-size: 20px;
+    line-height: 27px;
+  }
+  @include breakpoint-min($desktop) {
+    padding: 8px 26px;
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.authNavRight {
+  @extend .authNavLink;
+  width: 181px;
+}

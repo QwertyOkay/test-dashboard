@@ -1,0 +1,62 @@
+@import 'scss-utils/_variables';
+@import 'scss-utils/_mixins.scss';
+
+// language variables
+$language-width: 55px;
+$language-height: 30px;
+
+// language styles
+.languageWrap {
+  display: flex;
+}
+
+.languageLeft,
+.languageRight {
+  position: relative;
+  width: $language-width;
+  height: $language-height;
+  padding: 5px;
+}
+
+.languageLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $language-width;
+  padding: 23px 8px 5px 0;
+
+  border: $inputBorder;
+  background-color: $lightColor;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 24px;
+}
+
+.languageLeft .languageLabel {
+  border-radius: 20px 0 0 20px;
+  cursor: pointer;
+}
+
+.languageRight .languageLabel {
+  border-left: 0;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+}
+
+.languageControl:hover + .languageLabel,
+.languageControl:focus + .languageLabel {
+  background-color: $bakgroundColor;
+}
+
+.languageControl:checked + .languageLabel {
+  background-color: $bakgroundColor;
+}
+
+// country flags
+.languageRight .languageLabel {
+  background-image: url('../../image/flags/UA_flag_album.jpg');
+}
+
+.languageLeft .languageLabel {
+  background-image: url('../../image/flags/UK_flag_album.jpg');
+}

@@ -1,0 +1,16 @@
+@import 'scss-utils/_variables';
+@import 'scss-utils/_mixins.scss';
+
+.headerContentWrap {
+  display: flex;
+  padding-top: 20px;
+
+  @include breakpoint-max($tablet - 1px) {
+    padding-top: 12px;
+  }
+
+  @include breakpoint-max($desktop - 1px) {
+    align-items: center;
+    justify-content: space-between;
+  }
+}

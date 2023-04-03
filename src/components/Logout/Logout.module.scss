@@ -1,0 +1,31 @@
+@import 'scss-utils/_variables';
+
+.container {
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: flex-start;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+
+  background-color: $lightColor;
+  color: rgba(17, 17, 17, 0.6);
+  border: none;
+
+  cursor: pointer;
+}
+
+.image {
+  width: 18px;
+  margin-right: 8px;
+}

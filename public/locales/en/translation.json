@@ -1,0 +1,96 @@
+{
+  "home": {
+    "title": "Take good care of your small pets"
+  },
+  "nav": {
+    "news": "News",
+    "findpet": "Find pet",
+    "ourfriends": "Our friends"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Registration",
+    "account": "Account",
+    "next": "Next",
+    "back": "Back",
+    "registerSuccess": "Congratulations, {{user}}! You have successfully registered",
+    "hint": "Already have an account? ",
+    "loginHint": "Don't have an account? ",
+    "invalidEmail": "Invalid email address",
+    "requiredValue": "Required",
+    "notWhitespace": "Whitespace is not allowed",
+    "passwordShort": "Password is too short",
+    "passwordLong": "Password is too long",
+    "passwordsMatch": "Passwords must match",
+    "nameShort": "Name is too short",
+    "nameAlpabets": "Only alphabets are allowed",
+    "locationShort": "Location is too short",
+    "invalidPhone": "Phone is not valid",
+    "cityFormat": "Format should be: city, region",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "confirmPlaceholder": "Confirm Password",
+    "namePlaceholder": "Name",
+    "cityPlaceholder": "City, region",
+    "phonePlaceholder": "Mobile phone"
+  },
+  "user": {
+    "myTitle": "My information",
+    "myPets": "My pets",
+    "name": "Name",
+    "email": "Email",
+    "birthday": "Birthday",
+    "phone": "Phone",
+    "city": "City",
+    "uploadFoto": "Upload your photo",
+    "choisePhoto": "Choise your photo",
+    "editPhoto": "Edit photo",
+    "logOut": "Log Out",
+    "noPets": "You have no ads created"
+  },
+  "pet": {
+    "addPet": "Add pet",
+    "namePet": "Name pet",
+    "birthDatePet": "Date of birth",
+    "breed": "Breed",
+    "next": "Next",
+    "cancel": "Cancel",
+    "addPhotoComments": "Add photo and some comments",
+    "comments": "Comments",
+    "choisePhoto": "Choise another photo",
+    "selectPhoto": "Please select a photo",
+    "atLeast2": "Must be at least 2 characters",
+    "noMore16": "No more than 16 characters",
+    "letters": "Only letters",
+    "required": "Required",
+    "atLeast8": "Must be at least 8 characters",
+    "noMore120": "No more than 120 characters",
+    "data": "DD.MM.YYYY",
+    "back": "Back",
+    "done": "Done",
+    "namePlaceholder": "Type name pet",
+    "birthPlaceholder": "Type date of birth",
+    "breedPlaceholder": "Type breed",
+    "commentsPlaceholder": "Type comments"
+  },
+  "findpet": {
+    "success": "Notice successfully added",
+    "error": "Something went wrong, try again",
+    "warning": "You need to authorize before adding notices",
+    "title": "Find your favorite pet",
+    "noAds": "Sorry, there is no ads.",
+    "lostFound": "Lost/Found",
+    "goodHands": "In good hands",
+    "sell": "Sell",
+    "favorite": "Favorite ads",
+    "myAds": "My ads",
+    "more": "Learn more"
+  },
+  "ourFriends": {
+    "title": "Our friends"
+  },
+  "news": {
+    "title": "News",
+    "search": "Search"
+  }
+}

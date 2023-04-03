@@ -1,0 +1,45 @@
+@import 'scss-utils/_variables';
+@import 'scss-utils/_mixins.scss';
+
+.mainNav {
+  @media screen and (max-width: 1279px) {
+    background-color: $bakgroundColor;
+    position: absolute;
+    right: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    transition: 500ms;
+    transform: translateX(-100%);
+    justify-content: flex-start;
+    z-index: 100;
+    height: 100vh;
+  }
+
+  @media screen and (max-width: 767px) {
+    top: $smallHeaderHeight;
+    padding-top: 46px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    top: $mediumHeaderHeight;
+    padding-top: 88px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  @include breakpoint-max-landscape($mobileLandscape) {
+    padding-top: 40px;
+  }
+}
+.responsiveNav {
+  transform: none;
+  z-index: 100;
+}

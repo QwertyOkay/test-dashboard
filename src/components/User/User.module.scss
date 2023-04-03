@@ -1,0 +1,81 @@
+@import 'scss-utils/_variables';
+
+.container {
+  display: flex;
+  margin: 60px 0 0;
+
+  @media screen and (max-width: 1279px) {
+    flex-direction: column;
+    margin: 90px 0 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: 61px 0 0;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 38px;
+
+  color: $textColor;
+
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 0.04em;
+  }
+}
+
+.userInformation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 411px;
+  padding: 20px 16px 40px;
+
+  box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+  border-radius: 0px 40px 40px 0px;
+  background-color: $lightColor;
+
+  position: sticky;
+  top: 10px;
+
+  @media screen and (max-width: 1279px) {
+    width: 100%;
+    padding: 24px 40px 24px 32px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 20px 12px 20px 16px;
+    box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+    border-radius: 20px;
+    width: 100%;
+  }
+}
+
+.containerInformation {
+  @media screen and (max-width: 1279px) {
+    margin-right: 32px;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: 0 20px 47px;
+  }
+}
+
+.titleContainer {
+  margin: 0 0 24px 17px;
+
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 32px;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: 0 0 18px 20px;
+  }
+}

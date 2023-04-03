@@ -1,0 +1,140 @@
+@import 'scss-utils/_variables';
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+
+  background: $lightColor;
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  border-radius: 40px;
+
+  overflow: hidden;
+
+  & + & {
+    margin-top: 22px;
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    padding: 16px 20px 40px;
+  }
+}
+
+.containerImg {
+  display: flex;
+  // align-items: center;
+  // text-align: center;
+
+  width: 161px;
+  height: 161px;
+  margin-right: 32px;
+  overflow: unset;
+  border-radius: 40px;
+
+  @media screen and (max-width: 767px) {
+    width: 210px;
+    height: 210px;
+    margin-right: 0px;
+    border-radius: 20px;
+
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+}
+
+.image {
+  width: 161px;
+  border-radius: 40px;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    border-radius: 20px;
+  }
+}
+
+.containerText {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  color: $textColor;
+
+  & + & {
+    margin-top: 12px;
+  }
+
+  &:last-child {
+    margin-top: 16px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    line-height: 19px;
+
+    &:last-child {
+      margin-top: 12px;
+    }
+  }
+}
+
+.button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #fdf7f2;
+  backdrop-filter: blur(2px);
+
+  background-image: url(../../image/svg/delete.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  cursor: pointer;
+
+  &:hover {
+    background-image: url(../../image/svg/deleteHover.svg);
+  }
+
+  @media screen and (max-width: 767px) {
+    top: 230px;
+    right: 10px;
+    background-color: transparent;
+  }
+}
+
+.loader {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+
+  @media screen and (max-width: 767px) {
+    top: 230px;
+    right: 10px;
+  }
+}

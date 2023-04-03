@@ -1,0 +1,18 @@
+@import 'scss-utils/_variables';
+@import 'scss-utils/_mixins';
+
+.container {
+  width: $mobile;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include breakpoint-min($tablet) {
+    width: $tablet;
+    padding: 0 32px;
+  }
+
+  @include breakpoint-min($desktop) {
+    width: $desktop;
+    padding: 0 16px;
+  }
+}
