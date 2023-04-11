@@ -11,7 +11,6 @@ const FirstStep = ({ onNextStep, formData }) => {
   const { t } = useTranslation();
 
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfPassword, setShowConfPassword] = useState(false);
 
   const validationFirstStepSchema = Yup.object({
     email: Yup.string()
@@ -82,37 +81,6 @@ const FirstStep = ({ onNextStep, formData }) => {
             )}
           </label>
 
-          <label className={styles.formGroup}>
-            <Field
-              className={styles.input}
-              name="confirmPassword"
-              type={showConfPassword ? 'text' : 'password'}
-              placeholder={t('auth.confirmPlaceholder')}
-            />
-            <span
-              className={styles.icon}
-              onClick={() => setShowConfPassword(!showConfPassword)}
-            >
-              {showConfPassword && (
-                <IconContext.Provider
-                  value={{ style: { verticalAlign: 'middle' } }}
-                >
-                  <FiEye />
-                </IconContext.Provider>
-              )}
-              {!showConfPassword && (
-                <IconContext.Provider
-                  value={{ style: { verticalAlign: 'middle' } }}
-                >
-                  <FiEyeOff />
-                </IconContext.Provider>
-              )}
-            </span>
-            {errors.confirmPassword && touched.confirmPassword && (
-              <div className={styles.errorMsg}>{t(errors.confirmPassword)}</div>
-            )}
-          </label>
-
           <button className={styles.button} type={'submit'}>
             {t('auth.next')}
           </button>
@@ -127,10 +95,7 @@ FirstStep.propTypes = {
   formData: PropTypes.shape({
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
-    confirmPassword: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
   }).isRequired,
 };
 

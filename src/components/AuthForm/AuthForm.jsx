@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import FirstStep from './FirstStep';
-import SecondStep from './SecondStep';
 import styles from './AuthForm.module.scss';
 import { authOperations } from 'redux/auth';
 import notices from 'helpers/Notification';
@@ -13,15 +12,12 @@ const AuthForm = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [step, setStep] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    confirmPassword: '',
     name: '',
-    location: '',
-    phone: '',
   });
 
   const makeDispatchFormData = formData => {
@@ -52,25 +48,14 @@ const AuthForm = () => {
     setStep(prev => prev + 1);
   };
 
-  const handlePrevStep = newDate => {
-    setFormData(prev => ({ ...prev, ...newDate }));
-    setStep(prev => prev - 1);
-  };
+  // const handlePrevStep = newDate => {
+  //   setFormData(prev => ({ ...prev, ...newDate }));
+  //   setStep(prev => prev - 1);
+  // };
 
   const PageDisplay = () => {
     if (step === 0) {
       return <FirstStep onNextStep={handleNextStep} formData={formData} />;
-    }
-
-    if (step === 1) {
-      return (
-        <SecondStep
-          onNextStep={handleNextStep}
-          onPrevStep={handlePrevStep}
-          formData={formData}
-          loading={loading}
-        />
-      );
     }
   };
 
