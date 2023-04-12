@@ -6,10 +6,10 @@ const RegisterPage = () => {
   return (
     <main>
       <FormSection>
-        <Container> 
+        <Container>
           <AuthForm />
         </Container>
-       </FormSection>
+      </FormSection>
     </main>
   );
 };

@@ -25,6 +25,7 @@ export default function Nav({ toggleMenu }) {
       >
         {t('nav.news')}
       </NavLink>
+
       <NavLink
         onClick={toggleMenu}
         className={pageActive ? styles.active : styles.navLink}
@@ -32,6 +33,7 @@ export default function Nav({ toggleMenu }) {
       >
         {t('nav.findpet')}
       </NavLink>
+      
       <NavLink
         onClick={toggleMenu}
         className={({ isActive }) =>

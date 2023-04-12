@@ -4,15 +4,20 @@ import { IconContext } from 'react-icons';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import styles from './AuthForm.module.scss';
+import { Dna } from 'react-loader-spinner';
 
-const FirstStep = ({ onNextStep, formData }) => {
-  const { t } = useTranslation();
+const FirstStep = ({ onNextStep, formData, loading }) => {
+  // const { t } = useTranslation();
 
   const [showPassword, setShowPassword] = useState(false);
+  // const [showConfPassword, setShowConfPassword] = useState(false);
 
   const validationFirstStepSchema = Yup.object({
+    name: Yup.string()
+      .min(2, 'auth.nameShort')
+      .matches(/^[a-zA-ZА-ЩЬЮЯҐЄІЇа-щьюяґєії'\s]+$/, 'auth.nameAlpabets'),
     email: Yup.string()
       .email('auth.invalidEmail')
       .required('auth.requiredValue'),
@@ -21,13 +26,10 @@ const FirstStep = ({ onNextStep, formData }) => {
       .min(7, 'auth.passwordShort')
       .max(32, 'auth.passwordLong')
       .required('auth.requiredValue'),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref('password'), null], 'auth.passwordsMatch')
-      .required('auth.requiredValue'),
   });
 
   const handleFormSubmit = values => {
-    onNextStep(values);
+    onNextStep(values, true);
   };
 
   return (
@@ -41,12 +43,24 @@ const FirstStep = ({ onNextStep, formData }) => {
           <label className={styles.formGroup}>
             <Field
               className={styles.input}
+              name="name"
+              type="text"
+              placeholder={1}
+            />
+            {errors.name && touched.name && (
+              <div className={styles.errorMsg}>{2}</div>
+            )}
+          </label>
+
+          <label className={styles.formGroup}>
+            <Field
+              className={styles.input}
               name="email"
               type="text"
-              placeholder={t('auth.emailPlaceholder')}
+              placeholder={3}
             />
             {errors.email && touched.email && (
-              <div className={styles.errorMsg}>{t(errors.email)}</div>
+              <div className={styles.errorMsg}>{4}</div>
             )}
           </label>
 
@@ -55,7 +69,7 @@ const FirstStep = ({ onNextStep, formData }) => {
               className={styles.input}
               name="password"
               type={showPassword ? 'text' : 'password'}
-              placeholder={t('auth.passwordPlaceholder')}
+              placeholder={5}
             />
             <span
               className={styles.icon}
@@ -77,13 +91,28 @@ const FirstStep = ({ onNextStep, formData }) => {
               )}
             </span>
             {errors.password && touched.password && (
-              <div className={styles.errorMsg}>{t(errors.password)}</div>
+              <div className={styles.errorMsg}>{6}</div>
             )}
           </label>
 
-          <button className={styles.button} type={'submit'}>
-            {t('auth.next')}
+          <button type="submit" className={styles.button} disabled={loading}>
+            {loading ? (
+              <Dna
+                visible={true}
+                height="40"
+                width="80"
+                ariaLabel="dna-loading"
+                wrapperClass="dna-wrapper"
+                wrapperStyle={{ verticalAlign: 'middle' }}
+              />
+            ) : (
+              'Create account'
+            )}
           </button>
+
+          {/* <button className={styles.button} type={'submit'}>
+            {t('auth.next')}
+          </button> */}
         </Form>
       )}
     </Formik>
@@ -95,7 +124,6 @@ FirstStep.propTypes = {
   formData: PropTypes.shape({
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
   }).isRequired,
 };
 

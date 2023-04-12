@@ -1,77 +1,60 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
-import FirstStep from './FirstStep';
-import styles from './AuthForm.module.scss';
-import { authOperations } from 'redux/auth';
-import notices from 'helpers/Notification';
-
-const AuthForm = () => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const [step, setStep] = useState(0);
-  const [setLoading] = useState(false);
-
-  const [formData, setFormData] = useState({
+const RegisterForm = () => {
+  const initialValues = {
+    name: '',
     email: '',
     password: '',
-    name: '',
+  };
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string().required('Required'),
   });
 
-  const makeDispatchFormData = formData => {
-    setLoading(true);
-
-    dispatch(authOperations.register(formData))
-      .unwrap()
-      .then(() => {
-        notices.showSuccess(
-          <>{t('auth.registerSuccess', { user: `${formData.name}` })}</>
-        );
-      })
-      .catch(err => {
-        setLoading(false);
-        notices.showError(err?.message);
-      });
-  };
-
-  const handleNextStep = (newDate, final = false) => {
-    setFormData(prev => ({ ...prev, ...newDate }));
-
-    if (final) {
-      makeDispatchFormData(newDate);
-
-      return;
-    }
-
-    setStep(prev => prev + 1);
-  };
-
-  // const handlePrevStep = newDate => {
-  //   setFormData(prev => ({ ...prev, ...newDate }));
-  //   setStep(prev => prev - 1);
-  // };
-
-  const PageDisplay = () => {
-    if (step === 0) {
-      return <FirstStep onNextStep={handleNextStep} formData={formData} />;
-    }
+  const onSubmit = (values, { setSubmitting }) => {
+    setTimeout(() => {
+      alert(JSON.stringify(values, null, 2));
+      setSubmitting(false);
+    }, 400);
   };
 
   return (
-    <div className={styles.formWrap}>
-      <h1 className={styles.title}>{t('auth.register')}</h1>
-      {PageDisplay()}
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <div>
+            <label htmlFor="name">Name</label>
+            <Field type="text" name="name" />
+            <ErrorMessage name="name" component="div" />
+          </div>
 
-      <p className={styles.textHint}>
-        {t('auth.hint')}
-        <NavLink className={styles.link} to="/login">
-          {t('auth.login')}
-        </NavLink>
-      </p>
-    </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <Field type="email" name="email" />
+            <ErrorMessage name="email" component="div" />
+          </div>
+
+          <div>
+            <label htmlFor="password">Password</label>
+            <Field type="password" name="password" />
+            <ErrorMessage name="password" component="div" />
+          </div>
+
+          <button type="submit" disabled={isSubmitting}>
+            Submit
+          </button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
-export default AuthForm;
+export default RegisterForm;
